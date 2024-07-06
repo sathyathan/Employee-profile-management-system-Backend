@@ -36,6 +36,28 @@ export const loginEmployee= async(req,res)=>{
     return res.status(500).json({message:"login failed due to internal server error"});
     }
     }
+    export const attendanceEmployee= async(req,res)=>{
+      try{
+          console.log(req.body);
+      const {email,password,present}=req.body
+      const employeeDetail=await Employee.findOne({email})
+      console.log(employeeDetail);
+      if(!employeeDetail){
+          return res.status(401).json({message:"employee not found"});
+      }
+      const passwordMatch=await bcrypt.compare(password,employeeDetail.password);
+      console.log(passwordMatch);
+      if(!passwordMatch){
+          return res.status(401).json({message:"employee absent"});
+      }
+      return res.status(200).json({message:"employee present"});
+    }
+    catch(error){
+      console.log(error);
+      return res.status(500).json({message:"login failed due to internal server error"});
+      }
+      }
+  
 
 
     export const createEmployee = async (req, res) => {

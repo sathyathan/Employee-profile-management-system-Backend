@@ -1,10 +1,11 @@
 import express,{Router} from "express";
-import { loginEmployee,registerEmployee,createEmployee,getEmployee,getEmployeeById,updateEmployee,deleteEmployee} from "../Controller/employeeController.js";
+import { loginEmployee,registerEmployee,attendanceEmployee,createEmployee,getEmployee,getEmployeeById,updateEmployee,deleteEmployee} from "../Controller/employeeController.js";
 
 const router=express.Router();
 
 router.post('/register-employee',registerEmployee);
 router.post('/login-employee',loginEmployee);
+router.post('/attendance-employee',attendanceEmployee);
 router.post("/createemployee", createEmployee);
 router.get("/getallemployee", getEmployee);
 router.get("/getemployee/:id", getEmployeeById);
