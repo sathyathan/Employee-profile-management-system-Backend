@@ -45,7 +45,7 @@ export const loginEmployee= async(req,res)=>{
       if(!employeeDetail){
           return res.status(401).json({message:"employee not found"});
       }
-      const passwordMatch=await bcrypt.compare(password,employeeDetail.password,present);
+      const passwordMatch=await bcrypt.compare(password,employeeDetail.password);
       console.log(passwordMatch);
       if(!passwordMatch){
           return res.status(401).json({message:"employee absent"});
