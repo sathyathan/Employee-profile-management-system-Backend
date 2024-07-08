@@ -7,7 +7,7 @@ const employeeSchema=new mongoose.Schema({
      role:String,
      email:String,
      password:String,
-     present:Boolean,
+     present:String,
 
      
 })

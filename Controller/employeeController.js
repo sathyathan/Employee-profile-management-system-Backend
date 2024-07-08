@@ -45,7 +45,7 @@ export const loginEmployee= async(req,res)=>{
       if(!employeeDetail){
           return res.status(401).json({message:"employee not found"});
       }
-      const passwordMatch=await bcrypt.compare(password,employeeDetail.password);
+      const passwordMatch=await bcrypt.compare(password,employeeDetail.password,present);
       console.log(passwordMatch);
       if(!passwordMatch){
           return res.status(401).json({message:"employee absent"});
@@ -117,6 +117,8 @@ export const loginEmployee= async(req,res)=>{
               role,
               email,
               password,
+              present,
+
           } = req.body;
           const results = await Employee.updateOne(
             { _id: empId },
@@ -127,6 +129,7 @@ export const loginEmployee= async(req,res)=>{
               role,
               email,
               password,
+              present,
   
             }
           );
