@@ -39,7 +39,7 @@ export const loginEmployee= async(req,res)=>{
     export const attendanceEmployee= async(req,res)=>{
       try{
           console.log(req.body);
-      const {email,password,present}=req.body
+      const {email,password,present,absent}=req.body
       const employeeDetail=await Employee.findOne({email})
       console.log(employeeDetail);
       if(!employeeDetail){
