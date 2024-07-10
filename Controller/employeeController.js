@@ -72,7 +72,7 @@ export const loginEmployee= async(req,res)=>{
           console.log(error);
           return res
             .status(500)
-            .json({ message: "Internal server error in create employee" });
+            .json({message:error  });
         }
       };
       
