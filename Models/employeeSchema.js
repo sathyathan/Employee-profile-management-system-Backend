@@ -9,7 +9,12 @@ const employeeSchema=new mongoose.Schema({
      password:String,
      present:String,
      absent:String,
-     
+     location:String,
+     current:String,
+     saving:String,
+     intern:String,
+     junior:String,
+     senior:String,
 
      
 })
